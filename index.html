@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    function ValidateEmail(inputText){
+      var mailformat = /^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/i;
+      if (mailformat.test(document.getElementById('email_input').value)) {
+        document.getElementById('email_input').focus();
+        document.getElementById("button").innerHTML="Submitting"
+        setTimeout(function() {
+          window.location.replace('thankyou.html');
+        }, 2000);
+      } else {
+        document.getElementById('email_input').focus();
+        document.getElementById("EmailValidInfo").style.display = 'inline';
+      }
+      console.log("Email value: " + document.getElementById('email_input').value);
+      console.log("Interested Field value: " + document.getElementById('intField').value);
+    }
+  </script>
+  <style>
+    body {
+      background-color: #000639;
+      font-family: Helvetica;
+      color: #fff;
+    }
+    .container {
+      width: 30%;
+      margin: 0 auto;
+      padding-top: 10%;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    p {
+      padding-top: 15%;
+      font-size: 16px;
+    }
+    .btn {
+      background-color: #5c6ac4;
+      width:90%;
+    }
+    .liner {
+      margin-top: 10px;
+      display: block;
+      height: 2px;
+      width: 5%;
+      border-bottom: solid 2px #7ab55c;
+    }
+    .EmailValidInfo {
+      color: rgb(211, 8, 12);
+      display: none;
+    }
+    .email_input {
+      width: 50%;
+      float: left;
+    }
+    .interested_input {
+      width: 40%;
+      float: left;
+      padding-left: 2%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Stay up to date with ecommerce trends with Shopify's newsletter</h1>
+    <div class="liner">
+      <span></span>
+    </div>
+    <p>Subscribe for free marketing tips</p>
+      <div class="form-row">
+        <div class="form-group email_input">
+          <input type='text' id='email_input' class="form-control" placeholder="Email Address" >
+          <span id="EmailValidInfo" class="EmailValidInfo">Please enter a valid email address</span>
+        </div>
+        <div class="form-group interested_input">
+            <select id="intField" class="form-control">
+              <option>Interested In...</option>
+              <option>Marketing</option> 
+            </select>
+        </div>
+      </div>
+      <button name="submit" id='button' onclick="ValidateEmail()" class="btn">Sign up now</button>
+  </div>
+</body>
+
+</html>
